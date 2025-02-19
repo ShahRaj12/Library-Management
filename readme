@@ -1,0 +1,72 @@
+First Git Clone :- 
+
+
+1. For Install The Project
+-> npm install
+
+2. Create a .env File
+
+PORT=5000
+MONGO_URI=mongodb://127.0.0.1:27017/library
+JWT_SECRET=library
+EMAIL_USER=example@gmail.com
+EMAIL_PASS=password
+
+3. For Running The Project
+-> npm run start 
+
+User → Can only get books and borrow/return books.
+Admin → Can add, update, delete, and manage books.
+
+There are APIS for Authentication:- 
+1. Register -> http://localhost:5000/api/auth/register --> POST
+
+{
+    "fullName": "Shah Raj",
+    "email": "shahraj907@gmail.com",
+    "password": "raj1234"
+}
+
+2. Login -> http://localhost:5000/api/auth/login -> POST
+
+{
+    "email":"shahraj907@gmail.com",
+    "password":"raj1234"
+}
+
+3. Create -> http://localhost:5000/api/books -> POST
+Authorization: Bearer YOUR_JWT_TOKEN
+{
+    "title": "Shadows of Destiny",
+    "author": "Ava Campbell",
+    "genre": "Romance",
+    "availability": false
+}
+
+4. Listing -> http://localhost:5000/api/books?search=&page=1&limit=2&sort=-title&availability=false - GET
+Authorization: Bearer YOUR_JWT_TOKEN
+
+5. Update -> http://localhost:5000/api/books/67b5715cbcb031f4364632b0 - PUT
+Authorization: Bearer YOUR_JWT_TOKEN 
+
+{
+    "title": "Winds of Change",
+    "author": "Lucas Harrison",
+    "genre": "Drama",
+    "availability": true
+}
+
+6. Delete -> http://localhost:5000/api/books/67b56aa73c734e2bdf1a4211 - DELETE
+Authorization: Bearer YOUR_JWT_TOKEN
+
+7. Borrow -> http://localhost:5000/api/books/67b57e28953bf06e3ab2e91e/borrow - POST
+Authorization: Bearer YOUR_JWT_TOKEN
+
+8. Return ->  http://localhost:5000/api/books/67b57e28953bf06e3ab2e91e/return - POST
+Authorization: Bearer YOUR_JWT_TOKEN
+
+9. Get Borrowed Books -> http://localhost:5000/api/books/borrowed - GET
+Authorization: Bearer YOUR_JWT_TOKEN
+
+
+Also Email Setup Done For Notification in Borrow API

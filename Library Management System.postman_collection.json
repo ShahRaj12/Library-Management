@@ -1,0 +1,342 @@
+{
+	"info": {
+		"_postman_id": "def76ee3-60fd-4486-a041-88617f556c6a",
+		"name": "Library Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11269922"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Shah Raj\",\r\n    \"email\": \"shahraj907@gmail.com\",\r\n    \"password\": \"raj1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Books CRUD And Operations",
+			"item": [
+				{
+					"name": "Books Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjU2OTVjM2M3MzRlMmJkZjFhNDIwZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTk0NjU3MywiZXhwIjoxNzM5OTUwMTczfQ.COL45i86fG0bMr-0Q53sK-6uIwZ4u35flzTGyV5yYP4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"title\": \"The Silent Echo\",\r\n    \"author\": \"Liam Carter\",\r\n    \"genre\": \"Mystery\",\r\n    \"availability\": true\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjU2OTVjM2M3MzRlMmJkZjFhNDIwZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTk0NjU3MywiZXhwIjoxNzM5OTUwMTczfQ.COL45i86fG0bMr-0Q53sK-6uIwZ4u35flzTGyV5yYP4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/books?search=Beyond&page=1&limit=2&sort=-title",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Beyond"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "sort",
+									"value": "-title"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjU2OTVjM2M3MzRlMmJkZjFhNDIwZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTk0NjU3MywiZXhwIjoxNzM5OTUwMTczfQ.COL45i86fG0bMr-0Q53sK-6uIwZ4u35flzTGyV5yYP4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Winds of Change\",\r\n    \"author\": \"Lucas Harrison\",\r\n    \"genre\": \"Drama\",\r\n    \"availability\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books/67b5715cbcb031f4364632b0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"67b5715cbcb031f4364632b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjU2OTVjM2M3MzRlMmJkZjFhNDIwZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTk0NjU3MywiZXhwIjoxNzM5OTUwMTczfQ.COL45i86fG0bMr-0Q53sK-6uIwZ4u35flzTGyV5yYP4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/books/67b56aa73c734e2bdf1a4211",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"67b56aa73c734e2bdf1a4211"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrow Books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjU2OTVjM2M3MzRlMmJkZjFhNDIwZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTk0NjU3MywiZXhwIjoxNzM5OTUwMTczfQ.COL45i86fG0bMr-0Q53sK-6uIwZ4u35flzTGyV5yYP4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/books/67b57df1953bf06e3ab2e912/borrow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"67b57df1953bf06e3ab2e912",
+								"borrow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return Books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjU2OTVjM2M3MzRlMmJkZjFhNDIwZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTk0NjU3MywiZXhwIjoxNzM5OTUwMTczfQ.COL45i86fG0bMr-0Q53sK-6uIwZ4u35flzTGyV5yYP4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books/67b56ac93c734e2bdf1a4215/return",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"67b56ac93c734e2bdf1a4215",
+								"return"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Borrowed Books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjU2OTVjM2M3MzRlMmJkZjFhNDIwZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTk0NjU3MywiZXhwIjoxNzM5OTUwMTczfQ.COL45i86fG0bMr-0Q53sK-6uIwZ4u35flzTGyV5yYP4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/books/borrowed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"borrowed"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
